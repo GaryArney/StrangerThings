@@ -3,6 +3,10 @@ import { createRoot } from 'react-dom/client';
 import { useState, useEffect } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom'  //imports from libraries
 import Header from '../components/Header.js'
+import Login from '../components/Login.js'
+import MainList from '../components/MainList.js'
+
+
 const App = () => {                 //function to wrap around useeffect
   const [postList, setPostList ] = useState([]);      //creates the empty state array
 
@@ -21,7 +25,9 @@ const App = () => {                 //function to wrap around useeffect
     return(
         <>
     <Header />
-    <p>Hi</p>
+    <Login />
+    <MainList />
+    <p>Index.js works</p>
         </>
     )
 }
