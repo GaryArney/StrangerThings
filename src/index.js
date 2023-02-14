@@ -2,7 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { useState, useEffect } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom'  //imports from libraries
-
+import Header from '../components/Header.js'
 const App = () => {                 //function to wrap around useeffect
   const [postList, setPostList ] = useState([]);      //creates the empty state array
 
@@ -12,7 +12,7 @@ const App = () => {                 //function to wrap around useeffect
         const response = await fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts');  //stranger things api, works so far.
         const data = await response.json();                     //set response.json to data
 
-        console.log(data);                  //logs results
+        console.log(data.data.posts[1]);                  //logs results
         setPostList(data.results);               //populates list with fetched data
     }
     getPost();               //invokes function
@@ -20,7 +20,7 @@ const App = () => {                 //function to wrap around useeffect
 
     return(
         <>
-
+    <Header />
     <p>Hi</p>
         </>
     )
@@ -38,3 +38,5 @@ root.render(        //added <hashrouter around app when importing react hashrout
 
 
 ///////beginning final project/////////
+///added header, mainlist, login component files
+//linked header to index, with links
