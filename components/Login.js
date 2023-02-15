@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Login = () => {
+const Login = (props) => {
 
 
     const login = async() => {
@@ -13,8 +13,8 @@ const Login = () => {
                 },
                 body: JSON.stringify({
                   user: {
-                    username: 'GGGG',
-                    password: 'FFFF'
+                    username: 'GGGGG',
+                    password: 'FFFFF'
                   }
                 })
               });
@@ -27,11 +27,14 @@ const Login = () => {
             }
 
           };
-          login();
+        
    
 
     return(
         <>
+    {
+        props.loggedIn ? <p>USER LOGGED IN</p>: null
+    }
         <form>
 
             <input type="text" placeholder="username"></input>

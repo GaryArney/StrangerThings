@@ -5,7 +5,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom'  //imports from lib
 import Header from '../components/Header.js'
 import Login from '../components/Login.js'
 import MainList from '../components/MainList.js'
-
+import Profile from '../components/Profile.js'
 console.log('step 2');
 const App = () => {                 //function to wrap around useeffect
   const [postList, setPostList ] = useState([]);      //creates the empty state array
@@ -18,8 +18,9 @@ const App = () => {                 //function to wrap around useeffect
         const response = await fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts');  //stranger things api, works so far.
         const data = await response.json();                     //set response.json to data
 
-        console.log(data.data.posts[1],"Fetched Data");                  //logs results
-        setPostList(data.results);               //populates list with fetched data
+        console.log(data.data.posts[2].title,"Fetched Data");                  //logs results
+        setPostList(data);               //populates list with fetched data
+      
     }
     
     getPost();               //invokes function
@@ -28,18 +29,19 @@ const App = () => {                 //function to wrap around useeffect
     return(
         <>
     <Header />
+
     <Routes>
         
         <Route path='/' element={
             <MainList 
                 postList={postList}
                 setPostList={setPostList}
+                loggedIn={loggedIn}
               />
               }>
         </Route>
-        <Route path='/login' element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>}>
-            
-        </Route>
+        <Route path='/login' element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>}></Route>
+        <Route path='/profile' element={<Profile loggedIn={loggedIn}/>}></Route>
     </Routes>
         </>
     )
