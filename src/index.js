@@ -9,6 +9,8 @@ import MainList from '../components/MainList.js'
 console.log('step 2');
 const App = () => {                 //function to wrap around useeffect
   const [postList, setPostList ] = useState([]);      //creates the empty state array
+  const [loggedIn, setLoggedIn] = useState(window.localStorage.getItem('token')); //if token present, it's true
+
 //   console.log(postList, "postlist");
   useEffect(() => {                                     //wraps around asnyc function to fire only once
     const getPost = async() => {                 //function to fetch from api
@@ -26,9 +28,19 @@ const App = () => {                 //function to wrap around useeffect
     return(
         <>
     <Header />
-    <Login />
-    <MainList postList={postList} setPostList={setPostList}/>
-    <p>Index.js works</p>
+    <Routes>
+        
+        <Route path='/' element={
+            <MainList 
+                postList={postList}
+                setPostList={setPostList}
+              />
+              }>
+        </Route>
+        <Route path='/login' element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>}>
+            
+        </Route>
+    </Routes>
         </>
     )
 }

@@ -3,10 +3,11 @@ console.log('step 1');
 
 const MainList = (props) => {
     // console.log(props.postList.data, "mainList props");  // props.postlist is the correct syntax
+    console.log(props.postList);
     return(
  
         <>
-            <h4>Data should show follow.{}</h4>
+            <h4>Data should follow.{}</h4>
      
         </>
        
