@@ -6,6 +6,9 @@ import Header from '../components/Header.js'
 import Login from '../components/Login.js'
 import MainList from '../components/MainList.js'
 import Profile from '../components/Profile.js'
+import Register from '../components/Register.js'
+import Test from '../components/Test.js'
+
 console.log('step 2');
 const App = () => {                 //function to wrap around useeffect
   const [postList, setPostList ] = useState([]);      //creates the empty state array
@@ -29,7 +32,7 @@ const App = () => {                 //function to wrap around useeffect
     return(
         <>
     <Header />
-
+      <Test />
     <Routes>
         
         <Route path='/' element={
@@ -42,6 +45,7 @@ const App = () => {                 //function to wrap around useeffect
         </Route>
         <Route path='/login' element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>}></Route>
         <Route path='/profile' element={<Profile loggedIn={loggedIn}/>}></Route>
+        <Route path='/register' element={<Register />}></Route>
     </Routes>
         </>
     )

@@ -16,6 +16,7 @@ const Header = (props) => {
                     <Link to='/login'>   Log-in</Link>
                     <Link to='/'>   Home</Link>
                     <Link to='/profile'>    Profile</Link>
+                    <Link to='/register'>   Register</Link>
 
                     </>
                 // <h3>Home</h3>
