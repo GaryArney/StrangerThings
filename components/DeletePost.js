@@ -1,13 +1,13 @@
 import React from 'react'
 
 
-const NewPost = () => {
+const DeletePost = () => {
 
 
-    const newPost = async() => {
+    const deletePost = async() => {
 
-        fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts', {
-        method: "POST",
+        fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts/POSTID', {
+        method: "DELETE",
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2VkZTNhZjk2MjBhMTAwMTUzMzc4NzIiLCJ1c2VybmFtZSI6IkdhcnkiLCJpYXQiOjE2NzY1MzQ3MDN9.EIWNP1X7vXfXLlW6pvvCCJv6CymG4xfo1VGVuii5qU8'
@@ -27,11 +27,11 @@ const NewPost = () => {
   })
   .catch(console.error);
 }
-newPost();
+deletePost();
  return (
-    <p>New Post</p>
+    <p>Delete Post</p>
  )
 
 }
 
-// export default NewPost
+export default DeletePost

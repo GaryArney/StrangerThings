@@ -10,15 +10,15 @@ const Register = async() => {
         },
         body: JSON.stringify({
           user: {
-            username: 'GGGGG',
-            password: 'FFFFF'
+            username: 'Gary',
+            password: 'tteesstt'
           }
         })
       });
 
       const result = await response.json();
       console.log(result.data.token);
-      window.localStorage.setItem('RegToken',result.data.token);
+      window.localStorage.setItem('Token',result.data.token);
     } catch (error) {
       console.error(error);
     }

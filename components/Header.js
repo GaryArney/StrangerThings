@@ -14,9 +14,9 @@ const Header = (props) => {
                     <Link to='/login'>MAKE PATH TO LOGOUT PAGE</Link>:
                     <>
                     <Link to='/login'>   Log-in</Link>
-                    <Link to='/'>   Home</Link>
                     <Link to='/profile'>    Profile</Link>
                     <Link to='/register'>   Register</Link>
+                    <Link to='/newpost'>   New Post</Link>
 
                     </>
                 // <h3>Home</h3>
