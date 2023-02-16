@@ -17,6 +17,7 @@ const Header = (props) => {
                     <Link to='/profile'>    Profile</Link>
                     <Link to='/register'>   Register</Link>
                     <Link to='/newpost'>   New Post</Link>
+                    <Link to='/delete'>    Delete Post</Link>
 
                     </>
                 // <h3>Home</h3>

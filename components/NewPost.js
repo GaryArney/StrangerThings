@@ -15,8 +15,8 @@ const NewPost = () => {
   body: JSON.stringify({
     post: {
       title: "1999 Windstar SE, Possibly Possessed ",
-      description: "High miles, decent tires, but runs and drives. Non-smoker. Slight engine knock. Faint, child-like laugh can be heard when driving alone at night. No low ball offers. ",
-      price: "WTT for a boat.",
+      description: "High miles, slight engine knock but still runs and drives. Tires replaced last year. Power steering needs to be fixed. Faint, child-like laugh can be heard when driving alone at night. No low ball offers. Non-smoker.",
+      price:"WWT for a (normal) boat",
       location: "Wholesale Creepy Junkyard",
       willDeliver: true
     }
