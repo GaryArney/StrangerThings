@@ -7,7 +7,12 @@ import Login from '../components/Login.js'
 import MainList from '../components/MainList.js'
 import Profile from '../components/Profile.js'
 import Register from '../components/Register.js'
-import Test from '../components/Test.js'
+// import Test from '../components/Test.js'
+// import NewPost from '../components/NewPost.js'
+import DeletePost from '../components/DeletePost.js'
+import EditPost from '../components/EditPost.js'
+
+
 
 console.log('step 2');
 const App = () => {                 //function to wrap around useeffect
@@ -21,7 +26,7 @@ const App = () => {                 //function to wrap around useeffect
         const response = await fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts');  //stranger things api, works so far.
         const data = await response.json();                     //set response.json to data
 
-        console.log(data.data.posts[2].title,"Fetched Data");                  //logs results
+        console.log(data.data.posts[12].title,"Fetched Data");                  //logs results
         setPostList(data);               //populates list with fetched data
       
     }
@@ -32,7 +37,7 @@ const App = () => {                 //function to wrap around useeffect
     return(
         <>
     <Header />
-      <Test />
+
     <Routes>
         
         <Route path='/' element={
@@ -46,6 +51,9 @@ const App = () => {                 //function to wrap around useeffect
         <Route path='/login' element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>}></Route>
         <Route path='/profile' element={<Profile loggedIn={loggedIn}/>}></Route>
         <Route path='/register' element={<Register />}></Route>
+        {/* <Route path='/newpost' element={<NewPost />}></Route> */}
+        <Route path='/delete' element={<DeletePost />}></Route>
+        <Route path='/edit' element={<EditPost />}></Route>
     </Routes>
         </>
     )

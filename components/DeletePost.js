@@ -6,7 +6,7 @@ const DeletePost = () => {
 
     const deletePost = async() => {
 
-        fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts/63ede9b09620a10015337877', {
+        fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts/ADDPOSTID', {
         method: "DELETE",
         headers: {
             'Content-Type': 'application/json',

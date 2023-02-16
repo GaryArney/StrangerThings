@@ -18,6 +18,7 @@ const Header = (props) => {
                     <Link to='/register'>   Register</Link>
                     <Link to='/newpost'>   New Post</Link>
                     <Link to='/delete'>    Delete Post</Link>
+                    <Link to='/edit'>     EditPost</Link>
 
                     </>
                 // <h3>Home</h3>
