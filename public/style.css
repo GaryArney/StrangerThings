@@ -1,0 +1,43 @@
+div{
+    display:flex;
+    flex-direction: column;
+    background-color: rgb(194, 194, 194);
+    align-items: center;
+    border:3px solid black;
+}
+
+#list{
+    background-color: rgb(233, 233, 233);
+    border:3px solid black;
+    padding:10px;
+}
+
+body {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(186, 194, 191);
+    width:800px;
+}
+
+#message{
+
+display:flex;
+flex-direction: column;
+justify-content: flex-start;
+border:5px solid red;
+
+}
+
+#post{
+
+display:flex;
+flex-direction: row;
+justify-content: flex-start;
+border:3px solid blue;
+}
+
+#reply{
+    width:400px;
+    height:400px;
+}
