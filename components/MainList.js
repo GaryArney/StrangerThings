@@ -3,7 +3,7 @@ console.log('step 1');
 
 const MainList = (props) => {
     // console.log(props.postList.data, "mainList props");  // props.postlist is the correct syntax
-    console.log(props.postList.data, "mainlest props");
+    console.log(props.postList.data, "mainlist props");
     return(
  
         <>
@@ -13,9 +13,11 @@ const MainList = (props) => {
         <ol>
             {props.postList.data.posts.map((singlePost, index) => {
                  return (
-                    <li key={index}>
+                    <li id= "list" key={index}>
                         <h2>{singlePost.title}</h2>
                         <p>{singlePost.description}</p>
+                        <p>{singlePost.messages[1]}</p>
+                        <p>{singlePost.price}</p>
                     </li>
                  );
              })}

@@ -19,6 +19,7 @@ const Header = (props) => {
                     <Link to='/newpost'>   New Post</Link>
                     <Link to='/delete'>    Delete Post</Link>
                     <Link to='/edit'>     EditPost</Link>
+                    <Link to='/message'>    Message</Link>
 
                     </>
                 // <h3>Home</h3>

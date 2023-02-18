@@ -6,7 +6,7 @@ const EditPost = () => {
 
     const editPost = async() => {
 
-        fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts/63edf01d9620a10015337878', {
+        fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts/REPLACEWITHPOSTID', {
         method: "PATCH",
         headers: {
             'Content-Type': 'application/json',
