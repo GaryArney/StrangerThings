@@ -24,7 +24,12 @@ const MainList = (props) => {
                         <p>{singlePost.messages[1]}</p>
                         <p>{singlePost.price}</p>
                         <h5>Posted by: {singlePost.author.username}</h5>
+                        {
+                            props.loggedIn ?
                         <Link post={post}to='/message'>Send Message</Link>
+                        :
+                        null
+                        }
                     </li>
                  );
              })}

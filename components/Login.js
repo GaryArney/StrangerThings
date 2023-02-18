@@ -30,12 +30,14 @@ const Login = (props) => {
               console.log(result.data.token);
               console.log(result);
               window.localStorage.setItem('token',result.data.token);
-              props.setLoggedin(true);
+           
               navigate('/');
             } catch (error) {
               console.error(error);
             }
-
+       
+            props.setLoggedIn(window.localStorage.getItem('token'));
+            console.log('login set to token');
           };
 
     const handleNameChange = (event) => {

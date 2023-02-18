@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 console.log('profile loaded');
     const Profile = (props) => {
-        // const [profileInfo, setProfileInfo] = useState([]);
+        const [profileInfo, setProfileInfo] = useState([]);
 
 //         useEffect(() => {
 
@@ -28,6 +28,27 @@ console.log('profile loaded');
 //     profile();
 
 // },[])
+ useEffect(() => {
+const profile = async() =>{
+    const token = window.localStorage.getItem('token')
+      try {
+          const response = await fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/users/me', {
+          headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`        },
+      })
+  
+    
+      const resultPro = await response.json();
+      setProfileInfo(resultPro);
+      } catch (error) {
+    console.error(error);
+  }
+  };
+  profile();
+  
+  },[])
+
 console.log(props.profileInfo.data, 'array returned?');
 // console.log(props.profileInfo.data.username, 'array returned?');
 // console.log(profileInfo.data.posts[0].title);
@@ -36,14 +57,14 @@ console.log(props.profileInfo.data, 'array returned?');
        <>
        <h2>Profile Page</h2>
            
-            {props.profileInfo.data && (
+            {profileInfo.data && (
         <ol>
-            {props.profileInfo.data.posts.map((singlePost, index) => {
+            {profileInfo.data.posts.map((singlePost, index) => {
                  return (
                     <li id= "list" key={index}>
                         <h2>{singlePost.title}</h2>
                         <h3>{singlePost.author}</h3>
-              {props.profileInfo.data.messages.map((singlePost, index) => {
+              {profileInfo.data.messages.map((singlePost, index) => {
                 return (
                    <>
                    <div id='post' key={index}>
