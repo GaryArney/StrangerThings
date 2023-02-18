@@ -4,35 +4,44 @@ import { Link } from 'react-router-dom';
 
 const Header = (props) => {
     
+    const logOut = () => {
+        window.localStorage.removeItem('token');
+        props.setLoggedIn(false);
+    }
 
     return (
-        <>
+        
             <header>
                 <Link to='/'>Main List</Link>
-                {
-                    props.loggedIn ?
-                    <Link to='/login'>MAKE PATH TO LOGOUT PAGE</Link>:
+                
+
                     <>
                     <Link to='/login'>   Log-in</Link>
                     <Link to='/profile'>    Profile</Link>
-                    <Link to='/register'>   Register</Link>
                     <Link to='/newpost'>   New Post</Link>
                     <Link to='/delete'>    Delete Post</Link>
                     <Link to='/edit'>     EditPost</Link>
                     <Link to='/message'>    Message</Link>
+                    <Link to='/test'      >Test</Link>
+                    <Link to='/login' onClick={logOut}>Logout</Link>
+                    {
+                        props.isLoggedIn ?
+                        
+                        <>
+                        <Link to='/login' onClick={logOut}>Logout</Link>
+                        <Link to='/profile'>    Profile</Link>
+                        </>
+                        :
+                        null
+                    }
 
                     </>
-                // <h3>Home</h3>
-                // <h3>Posts</h3>
-                // <h3>Profile</h3>
-                // <h3>Log in</h3>
-                // <h3>Logout</h3>
 
-                }
+                
             </header>
         
         
-        </>
+        
     )
 
 

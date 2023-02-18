@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = (props) => {
 
-    const [showLoginButton, setShowLoginButton] = useState(true);
+    const [showLoginButton, setShowLoginButton] = useState(window.localStorage.getItem('token'));
     const [nameInput, setNameInput] = useState('');
     const [pwdInput, setPwdInput] = useState('');
+    const navigate = useNavigate();
 
     const login = async(event) => {
       event.preventDefault();
@@ -28,6 +30,8 @@ const Login = (props) => {
               console.log(result.data.token);
               console.log(result);
               window.localStorage.setItem('token',result.data.token);
+              props.setLoggedin(true);
+              navigate('/');
             } catch (error) {
               console.error(error);
             }
@@ -53,8 +57,16 @@ const Login = (props) => {
     <form onSubmit={login}>
       <input type='text' placeholder='username' onChange={handleNameChange}></input>
       <input type='text' placeholder='password' onChange={handlePwdChange}></input>
-      <button type='submit'>Log in</button>
-
+     
+      {
+        showLoginButton ?
+        null :
+        <>
+    <button type='submit'>Log in</button>
+    <Link to='/register' onClick={() => setShowLoginButton(false)}>Not Registered?</Link>
+        </>
+     
+      }
     </form>
 
 

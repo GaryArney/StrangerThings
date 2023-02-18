@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 console.log('profile loaded');
-
     const Profile = (props) => {
         // const [profileInfo, setProfileInfo] = useState([]);
 
@@ -36,8 +35,7 @@ console.log(props.profileInfo.data, 'array returned?');
     return (
        <>
        <h2>Profile Page</h2>
-            <h4>Main post list area. Data should follow.</h4>
-
+           
             {props.profileInfo.data && (
         <ol>
             {props.profileInfo.data.posts.map((singlePost, index) => {
@@ -48,7 +46,7 @@ console.log(props.profileInfo.data, 'array returned?');
               {props.profileInfo.data.messages.map((singlePost, index) => {
                 return (
                    <>
-                   <div id='post'>
+                   <div id='post' key={index}>
                         <h3>From: {singlePost.fromUser.username}</h3>
                         <h4>Post:</h4>
                         <div id='message'>
