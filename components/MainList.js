@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 console.log('step 1');
 
 const MainList = (props) => {
@@ -14,10 +15,13 @@ const MainList = (props) => {
             {props.postList.data.posts.map((singlePost, index) => {
                  return (
                     <li id= "list" key={index}>
+                        
                         <h2>{singlePost.title}</h2>
                         <p>{singlePost.description}</p>
                         <p>{singlePost.messages[1]}</p>
                         <p>{singlePost.price}</p>
+                        <h5>Posted by: {singlePost.author.username}</h5>
+                        <Link to='/message'>Send Message</Link>
                     </li>
                  );
              })}

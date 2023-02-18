@@ -4,8 +4,12 @@ import React, { useState } from 'react';
 const Login = (props) => {
 
     const [showLoginButton, setShowLoginButton] = useState(true);
+    const [nameInput, setNameInput] = useState('');
+    const [pwdInput, setPwdInput] = useState('');
 
-    const login = async() => {
+    const login = async(event) => {
+      event.preventDefault();
+      console.log(nameInput, pwdInput, 'inputs');
             try {
               const response = await fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/users/login', {
                 method: 'POST',
@@ -14,8 +18,8 @@ const Login = (props) => {
                 },
                 body: JSON.stringify({
                   user: {
-                    username: 'GGGGG',
-                    password: 'FFFFF'
+                    username: `${nameInput}`,
+                    password: `${pwdInput}`
                   }
                 })
               });
@@ -30,12 +34,32 @@ const Login = (props) => {
 
           };
 
+    const handleNameChange = (event) => {
+      setNameInput(event.target.value)
+    }
+
+    const handlePwdChange = (event) => {
+      setPwdInput(event.target.value)
+    }
+
+
     return(
         <>
     {
         props.loggedIn ? <p>USER LOGGED IN</p>: null
     }
-        <form>
+
+
+    <form onSubmit={login}>
+      <input type='text' placeholder='username' onChange={handleNameChange}></input>
+      <input type='text' placeholder='password' onChange={handlePwdChange}></input>
+      <button type='submit'>Log in</button>
+
+    </form>
+
+
+
+        {/* <form>
 
             <input type="text" placeholder="username"></input>
             <input type="text" placeholder="password"></input>
@@ -54,7 +78,7 @@ const Login = (props) => {
                             <button onClick={() => setShowLoginButton(true)}>Already Registered?</button>
                 </>
             }
-        </form>
+        </form> */}
         </>
     )
 

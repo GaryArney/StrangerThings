@@ -45,7 +45,20 @@ console.log(props.profileInfo.data, 'array returned?');
                     <li id= "list" key={index}>
                         <h2>{singlePost.title}</h2>
                         <h3>{singlePost.author}</h3>
-              
+              {props.profileInfo.data.messages.map((singlePost, index) => {
+                return (
+                   <>
+                   <div id='post'>
+                        <h3>From: {singlePost.fromUser.username}</h3>
+                        <h4>Post:</h4>
+                        <div id='message'>
+                            {singlePost.content}
+                        </div>
+                        </div>
+                    </>
+                        
+                )
+              })}
                     </li>
                  );
              })}
