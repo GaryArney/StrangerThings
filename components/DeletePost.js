@@ -1,18 +1,18 @@
 import React from 'react'
-
+import { useParams } from 'react-router-dom';
 
 const DeletePost = () => {
-
-
+  const { id } = useParams();
+  const token = window.localStorage.getItem('token')
     const deletePost = async() => {
-      event.preventDefault();
+console.log({id},'curly ID');
 
-        fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts/63f12661d60fee0015168c73', {
+        fetch(`https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts/${id}`, {
         method: "DELETE",
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2VkZTNhZjk2MjBhMTAwMTUzMzc4NzIiLCJ1c2VybmFtZSI6IkdhcnkiLCJpYXQiOjE2NzY1MzQ3MDN9.EIWNP1X7vXfXLlW6pvvCCJv6CymG4xfo1VGVuii5qU8'
-                 },
+            'Authorization': `Bearer ${token}`
+                                          },
 
 }).then(response => response.json())
   .then(result => {

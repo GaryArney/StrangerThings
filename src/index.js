@@ -38,26 +38,26 @@ const App = () => {                 //function to wrap around useeffect
 
   useEffect(() => {
 
-    console.log('useEffect fires');
 
 
-const profile = async() =>{
-  const token = window.localStorage.getItem('token')
-    try {
-        const response = await fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/users/me', {
-        headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`        },
-    })
+
+// const profile = async() =>{
+//   const token = window.localStorage.getItem('token')
+//     try {
+//         const response = await fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/users/me', {
+//         headers: {
+//         'Content-Type': 'application/json',
+//         'Authorization': `Bearer ${token}`        },
+//     })
 
   
-    const resultPro = await response.json();
-    setProfileInfo(resultPro);
-    } catch (error) {
-  console.error(error);
-}
-};
-profile();
+//     const resultPro = await response.json();
+//     setProfileInfo(resultPro);
+//     } catch (error) {
+//   console.error(error);
+// }
+// };
+// profile();
 
 },[])
 //   {console.log(postList,"postList in index");}
@@ -79,11 +79,11 @@ profile();
         <Route path='/profile' element={<Profile profileInfo={profileInfo} setProfileInfo={setProfileInfo}/>}></Route>
         <Route path='/register' element={<Register />}></Route>
         <Route path='/newpost' element={<NewPost />}></Route>
-        <Route path='/delete' element={<DeletePost />}></Route>
+        <Route path='/posts/:id' element={<DeletePost />}></Route>
         <Route path='/edit' element={<EditPost />}></Route>
-        <Route path='/message' element={<Message />}></Route>
+        <Route path='/posts/:id/messages' element={<Message />}></Route>
         <Route path='/test' element={<Test />}></Route>
-        <Route path='/expand' element={<Expand postList={postList}/>}></Route>
+        {/* <Route path='/posts/:id/messages' element={<Expand postList={postList}/>}></Route> */}
     </Routes>
         </>
     )

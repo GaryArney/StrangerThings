@@ -64,14 +64,14 @@ console.log(props.profileInfo.data, 'array returned?');
                     <li id= "list" key={index}>
                         <h2>{singlePost.title}</h2>
                         <h3>{singlePost.author}</h3>
-              {profileInfo.data.messages.map((singlePost, index) => {
+              {profileInfo.data.messages.map((singleMessage, index) => {
                 return (
                    <>
                    <div id='post' key={index}>
-                        <h3>From: {singlePost.fromUser.username}</h3>
+                        <h3>From: {singleMessage.fromUser.username}</h3>
                         <h4>Post:</h4>
                         <div id='message'>
-                            {singlePost.content}
+                            {singleMessage.content}
                         </div>
                         </div>
                     </>

@@ -73,26 +73,7 @@ const Login = (props) => {
 
 
 
-        {/* <form>
 
-            <input type="text" placeholder="username"></input>
-            <input type="text" placeholder="password"></input>
-            {
-                showLoginButton ? 
-                <>
-                            <button onClick={login}>Login</button>
-                            <button onClick={() => setShowLoginButton(false)}>Not Registered?</button>
-
-                
-                </>
-                :
-                <>
-                            <input type="text" placeholder="Confirm Password"></input>
-                            <button onClick={confirm}>Register</button>
-                            <button onClick={() => setShowLoginButton(true)}>Already Registered?</button>
-                </>
-            }
-        </form> */}
         </>
     )
 

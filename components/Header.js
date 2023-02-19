@@ -14,9 +14,7 @@ console.log(props.loggedIn,'logged in?');
         <>
             <header>
             <Link to='/'>Main List</Link>                                                                  
-            <Link to='/newpost'>   New Post</Link>
-            <Link to='/delete'>    Delete Post</Link>
-            <Link to='/edit'>     EditPost</Link>                   
+                
             <Link to='/test'      >Test</Link>                 
                     {
                         props.loggedIn ?      
@@ -29,8 +27,10 @@ console.log(props.loggedIn,'logged in?');
                         
                         </>
                         :
-                        <Link to='/login'>Log in</Link>    
-                        
+                        <>
+                        <Link to='/login'>Log in</Link>  
+                        <Link to='/register'>Register</Link>  
+                        </>
                     
                     }
 

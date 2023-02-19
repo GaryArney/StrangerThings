@@ -1,13 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+
+
 
 const Expand = (props) => {
+    const { id } = useParams();
+    const [postId, setpostId] = useState('');
+    console.log(id,'just id');
+    console.log({id}, 'id with curlies')
 
+   useEffect (() => {
+        const viewSinglePost = async() => {
+        const response = await fetch(`https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts/${id}/messages`);
+        const data = await response.json();
+        console.log(data,'just data');
+        setpostId(data);
+    }
+viewSinglePost();
+console.log({id},'second ID with curlies');
+   },[])
+   console.log(postId.data,'postID');
     return (
         <>
-        <p>expand</p>
-        {props.postList.data && (
+        <p>expand {postId.id}</p>
+        {/* {postList.data && (
         <ol>
-            {props.postList.data.posts.map((singlePost, index) => {
+            {postList.data.posts.map((singlePost, index) => {
                    const post = singlePost._id
                    console.log(singlePost._id);
                  return (
@@ -29,7 +47,7 @@ const Expand = (props) => {
                  );
              })}
         </ol>
-)}
+)} */}
 </>
     )
 }

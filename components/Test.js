@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 
 
     const Test = () => {
+      const [testName, setTestName] = useState([]);
  console.log(window.localStorage.getItem('token'), "should show");
       const token = window.localStorage.getItem('token')
         const test = async() =>{
@@ -16,17 +17,22 @@ import React from 'react';
        
     
           const result = await response.json();
-          console.log(result);
+          setTestName(result)
+          console.log(result,'result!');
         } catch (error) {
           console.error(error);
         }
     }
     test();
-     
+    console.log(testName,'testname');
+    console.log(testName.data,'testname');
+    // console.log(testName.data.user,'testname');
+    // console.log(testName.data.user.username,'testname');
+    //  console.log(result,'yet another result');
     return(
             <>
         <p>TEST PAGE</p>
-        {/* <h3>{result}</h3> */}
+       <h3>{testName.error}</h3>
             </>
 
     )

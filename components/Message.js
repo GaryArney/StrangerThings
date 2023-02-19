@@ -1,13 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom';
 
+const Message = () =>{
 
-const Message = (props) =>{
-console.log(props,'post went through!');
+  const { id } = useParams();
         const [messageInput, setMessageInput] = useState('');
         const token = window.localStorage.getItem('token')
-    const message = async() => {
-  
-        fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts/63edf01d9620a10015337878/messages', {
+
+        // useEffect (() => {
+    const message = async(event) => {
+      event.preventDefault();
+        fetch(`https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts/${id}/messages`, {
   method: "POST",
   headers: {
     'Content-Type': 'application/json',
@@ -25,6 +28,7 @@ console.log(props,'post went through!');
 
     }
 
+  // },[])
 
     const handleChange = (event) => {
         setMessageInput(event.target.value);
@@ -33,7 +37,7 @@ console.log(props,'post went through!');
 
     return (
         <>
-                <p>Message Sent</p>
+                <p>Send Message</p>
         <form onSubmit={message}>
             <input id="reply" type="text" placeholder="Type message here." onChange={handleChange}></input>
 
