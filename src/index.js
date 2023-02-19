@@ -79,8 +79,8 @@ const App = () => {                 //function to wrap around useeffect
         <Route path='/profile' element={<Profile profileInfo={profileInfo} setProfileInfo={setProfileInfo}/>}></Route>
         <Route path='/register' element={<Register />}></Route>
         <Route path='/newpost' element={<NewPost />}></Route>
-        <Route path='/posts/:id' element={<DeletePost />}></Route>
-        <Route path='/edit' element={<EditPost />}></Route>
+        <Route path='/delete/:id' element={<DeletePost />}></Route>
+        <Route path='/edit/:id' element={<EditPost />}></Route>
         <Route path='/posts/:id/messages' element={<Message />}></Route>
         <Route path='/test' element={<Test />}></Route>
         {/* <Route path='/posts/:id/messages' element={<Expand postList={postList}/>}></Route> */}

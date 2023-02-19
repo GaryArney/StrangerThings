@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-
+import { useParams } from 'react-router-dom';
 
 const EditPost = () => {
-
+  const { id } = useParams();
   const token = window.localStorage.getItem('token');
   const [titleInput, setTitleInput] = useState('');
   const [descriptionInput, setDescriptionInput] = useState('');
@@ -11,7 +11,7 @@ const EditPost = () => {
 
     const editPost = async(event) => {
       event.preventDefault();
-        fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts/63f12d66d60fee0015168c77', {
+        fetch(`https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts/${id}`, {
         method: "PATCH",
         headers: {
             'Content-Type': 'application/json',

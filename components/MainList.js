@@ -35,8 +35,8 @@ const MainList = (props) => {
                                 {
                                     token ?
                                     <>
-                                <Link to={`/posts/${post}`}>    Delete Post</Link>
-                                <Link to='/edit'>     EditPost</Link>   
+                                <Link to={`/delete/${post}`}>    Delete Post</Link>
+                                <Link to={`/edit/${post}`}>     EditPost</Link>   
                                 </>:
                                 null
                                 }               
