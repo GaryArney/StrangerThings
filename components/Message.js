@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
 
-const Message = () =>{
-
+const Message = (props) =>{
+console.log(props,'post went through!');
         const [messageInput, setMessageInput] = useState('');
         const token = window.localStorage.getItem('token')
     const message = async() => {

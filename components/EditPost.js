@@ -1,23 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 
 const EditPost = () => {
 
+  const token = window.localStorage.getItem('token');
+  const [titleInput, setTitleInput] = useState('');
+  const [descriptionInput, setDescriptionInput] = useState('');
+  const [priceInput, setPriceInput] = useState('');
+  const [locationInput, setLocationInput] = useState('');
 
-    const editPost = async() => {
-
-        fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts/REPLACEWITHPOSTID', {
+    const editPost = async(event) => {
+      event.preventDefault();
+        fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts/63f12d66d60fee0015168c77', {
         method: "PATCH",
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2VkZTNhZjk2MjBhMTAwMTUzMzc4NzIiLCJ1c2VybmFtZSI6IkdhcnkiLCJpYXQiOjE2NzY1MzQ3MDN9.EIWNP1X7vXfXLlW6pvvCCJv6CymG4xfo1VGVuii5qU8'
-                 },
+            'Authorization': `Bearer ${token}`},        
                  body: JSON.stringify({
                     post: {
-                      title: "1999 Windstar SE, Possibly Possessed",
-                      description: "High miles, slight engine knock but still runs and drives. Tires replaced last year. Power steering needs to be fixed. Faint, child-like laugh can be heard when driving alone at night. No low ball offers. Non-smoker.",
-                      price: "WTT for a (normal) boat",
-                      location: "Wholesale Creepy Junkyard",
+                      title: `${titleInput}`,
+                      description: `${descriptionInput}`,
+                      price:`${priceInput}`,
+                      location: `${locationInput}`,
                       willDeliver: true
                     }
                   })
@@ -27,9 +31,42 @@ const EditPost = () => {
   })
   .catch(console.error);
 }
-editPost();
+
+const handleChangeTitle = (event) => {
+  setTitleInput(event.target.value);
+}
+const handleChangeDescription = (event) => {
+  setDescriptionInput(event.target.value);
+}
+const handleChangePrice = (event) => {
+  setPriceInput(event.target.value);
+}
+const handleChangeLocation = (event) => {
+  setLocationInput(event.target.value);
+}
  return (
+  <>
     <p>Edit Post</p>
+    
+<form onSubmit={editPost}>
+<input id="reply" type="text" placeholder="Type title here." onChange={handleChangeTitle}></input>
+<button type='submit'>Edit Title</button>
+</form>
+<form onSubmit={editPost}>
+<input id="reply" type="text" placeholder="Type description here." onChange={handleChangeDescription}></input>
+<button type='submit'>Edit Description</button>
+</form>
+<form onSubmit={editPost}>
+<input id="reply" type="text" placeholder="Type price here." onChange={handleChangePrice}></input>
+<button type='submit'>Edit Price</button>
+</form>
+<form onSubmit={editPost}>
+<input id="reply" type="text" placeholder="Type location here." onChange={handleChangeLocation}></input>
+
+<button type='submit'>Edit Location</button>
+
+</form>
+</>
  )
 
 }

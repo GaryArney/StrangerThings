@@ -5,8 +5,9 @@ const DeletePost = () => {
 
 
     const deletePost = async() => {
+      event.preventDefault();
 
-        fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts/63f12488d60fee0015168c71', {
+        fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts/63f12661d60fee0015168c73', {
         method: "DELETE",
         headers: {
             'Content-Type': 'application/json',

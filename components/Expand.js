@@ -1,16 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-console.log('step 1');
+const Expand = (props) => {
 
-const MainList = (props) => {
-    // console.log(props.postList.data, "mainList props");  // props.postlist is the correct syntax
-    console.log(props.postList.data, "mainlist props");
-    return(
- 
+    return (
         <>
-            <h4>Main post list area. Data should follow.</h4>
-
+        <p>expand</p>
         {props.postList.data && (
         <ol>
             {props.postList.data.posts.map((singlePost, index) => {
@@ -36,12 +30,8 @@ const MainList = (props) => {
              })}
         </ol>
 )}
-        </>
-       
-
-
+</>
     )
-
 }
 
-export default MainList;
+export default Expand

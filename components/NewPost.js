@@ -10,7 +10,8 @@ const NewPost = () => {
   
 
 
-    const newPost = async() => {
+    const newPost = async(event) => {
+            event.preventDefault();
       const token = window.localStorage.getItem('token')
 
 

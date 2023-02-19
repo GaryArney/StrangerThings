@@ -12,7 +12,7 @@ import NewPost from '../components/NewPost.js'
 import DeletePost from '../components/DeletePost.js'
 import EditPost from '../components/EditPost.js'
 import Message from '../components/Message.js'
-
+import Expand from '../components/Expand.js';
 
 
 console.log('step 2');
@@ -83,6 +83,7 @@ profile();
         <Route path='/edit' element={<EditPost />}></Route>
         <Route path='/message' element={<Message />}></Route>
         <Route path='/test' element={<Test />}></Route>
+        <Route path='/expand' element={<Expand postList={postList}/>}></Route>
     </Routes>
         </>
     )
