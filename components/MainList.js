@@ -17,8 +17,8 @@ const MainList = (props) => {
             {props.postList.data.posts.map((singlePost, index) => {
 
                    const post = singlePost._id
-                   console.log(post,'post id logged');
-                   console.log(singlePost._id, 'single post id logged');
+                //    console.log(post,'post id logged');
+                //    console.log(singlePost._id, 'single post id logged');
                  return (
                  
                     <li id= "list" key={index}>

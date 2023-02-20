@@ -12,7 +12,7 @@ import NewPost from '../components/NewPost.js'
 import DeletePost from '../components/DeletePost.js'
 import EditPost from '../components/EditPost.js'
 import Message from '../components/Message.js'
-import Expand from '../components/Expand.js';
+import Search from '../components/Search.js'
 
 
 console.log('step 2');
@@ -83,6 +83,7 @@ const App = () => {                 //function to wrap around useeffect
         <Route path='/edit/:id' element={<EditPost />}></Route>
         <Route path='/posts/:id/messages' element={<Message />}></Route>
         <Route path='/test' element={<Test />}></Route>
+        <Route path='/search' element={<Search />}></Route>
         {/* <Route path='/posts/:id/messages' element={<Expand postList={postList}/>}></Route> */}
     </Routes>
         </>

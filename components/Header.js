@@ -24,12 +24,13 @@ console.log(props.loggedIn,'logged in?');
                         <Link to='/profile'>    Profile</Link>
                         <Link to='/newpost'>  New Post</Link>
                         <Link to='/login' onClick={logOut}>Logout</Link>
-                        
+                        <Link to='/search'>Search</Link> 
                         </>
                         :
                         <>
                         <Link to='/login'>Log in</Link>  
-                        <Link to='/register'>Register</Link>  
+                        <Link to='/register'>Register</Link> 
+                       
                         </>
                     
                     }

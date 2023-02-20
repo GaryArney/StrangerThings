@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 
@@ -6,6 +6,8 @@ import React, { useState } from 'react';
       const [testName, setTestName] = useState([]);
  console.log(window.localStorage.getItem('token'), "should show");
       const token = window.localStorage.getItem('token')
+
+      useEffect(() => {  
         const test = async() =>{
         try {
           const response = await fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/test/me', {
@@ -23,12 +25,13 @@ import React, { useState } from 'react';
           console.error(error);
         }
     }
-    test();
+test();
     console.log(testName,'testname');
     console.log(testName.data,'testname');
     // console.log(testName.data.user,'testname');
     // console.log(testName.data.user.username,'testname');
     //  console.log(result,'yet another result');
+  }, []) 
     return(
             <>
         <p>TEST PAGE</p>
