@@ -9,13 +9,11 @@ const Header = (props) => {
         props.setLoggedIn(false);
         console.log('login set to false');
     }
-console.log(props.loggedIn,'logged in?');
+
     return (
         <>
             <header>
-            <Link to='/'>Main List</Link>                                                                  
-                
-            <Link to='/test'      >Test</Link>                 
+            <Link to='/'>Main List</Link>                                                                                  
                     {
                         props.loggedIn ?      
                         

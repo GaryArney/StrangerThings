@@ -1,34 +1,33 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react' //fires twice, forgot to implement useEffect
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Message = () =>{
 
   const { id } = useParams();
         const [messageInput, setMessageInput] = useState('');
         const token = window.localStorage.getItem('token')
+        const navigate = useNavigate();
 
-        // useEffect (() => {
     const message = async(event) => {
       event.preventDefault();
-        fetch(`https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts/${id}/messages`, {
+       const response = await fetch(`https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts/${id}/messages`, {
   method: "POST",
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}`},
+    'Authorization': `Bearer ${token}`
+          },
   body: JSON.stringify({
     message: {
       content: `${messageInput}`
     }
   })
-}).then(response => response.json())
-  .then(result => {
+})
+const result = response.json();
+
     console.log(result);
-  })
-  .catch(console.error);
-
+    navigate('/');
     }
-
-  // },[])
 
     const handleChange = (event) => {
         setMessageInput(event.target.value);

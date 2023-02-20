@@ -1,40 +1,27 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
+import React, { useState } from 'react'; //search is super wonky. I would've gone a different route if I could. Can't return links...easily.
 
     const Search = () =>{
         const [searchInput, setSearchInput] = useState('');
         const [arrayList, setArrayList] = useState([]);
         const [matches, setMatches] = useState([]);   
-        const [filteredList, setFilteredList] = useState([]);     
         
             const search = async(event) =>{
                 event.preventDefault();
                 const response = await fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts');
                 const data = await response.json(); 
-    
-         
+           
                 const title = (data.data.posts.map((singlePost, index) => {
-                //   const title = singlePost.title;
                     arrayList.push(singlePost.title);
 
             }))
             const filteredList = arrayList.filter(title => title.includes(searchInput));
-            setMatches(filteredList);
-            console.log(arrayList, 'just arrayList');
-
-         
+            setMatches(filteredList);    
         }
-console.log(matches,'any matches?');
 
             const handleChange = (event) => {
                 setSearchInput(event.target.value);
-            }
-           
-  
+            }           
 
-
-console.log(filteredList,'list should return something');
         return(
             <>
             <p>Search page</p>
@@ -45,11 +32,16 @@ console.log(filteredList,'list should return something');
                        >
                        </input>
                 <button type='submit'>Search</button>
+                {
+                    matches ?
                 <ol>
                     {matches.map((title,index) => (
                         <li key={index}>{title}</li>
                     ))}
                 </ol>
+                :
+                <p>No titles match</p>
+                    }
             </form>
             </>
         )

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const EditPost = () => {
   const { id } = useParams();
@@ -8,10 +9,11 @@ const EditPost = () => {
   const [descriptionInput, setDescriptionInput] = useState('');
   const [priceInput, setPriceInput] = useState('');
   const [locationInput, setLocationInput] = useState('');
+  const navigate = useNavigate();
 
     const editPost = async(event) => {
       event.preventDefault();
-        fetch(`https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts/${id}`, {
+       const response = await fetch(`https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts/${id}`, {
         method: "PATCH",
         headers: {
             'Content-Type': 'application/json',
@@ -25,11 +27,11 @@ const EditPost = () => {
                       willDeliver: true
                     }
                   })
-}).then(response => response.json())
-  .then(result => {
+})
+
+const result = response.json()
     console.log(result);
-  })
-  .catch(console.error);
+    navigate('/');
 }
 
 const handleChangeTitle = (event) => {
@@ -43,7 +45,8 @@ const handleChangePrice = (event) => {
 }
 const handleChangeLocation = (event) => {
   setLocationInput(event.target.value);
-}
+}                                                       
+//editing completely repopulates all fields no matter which button pressed, even if blank. But it 'works' for now. 
  return (
   <>
     <p>Edit Post</p>

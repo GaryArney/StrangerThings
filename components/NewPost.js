@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import { useNavigate } from 'react-router-dom';
 
 const NewPost = () => {
 
@@ -7,7 +7,7 @@ const NewPost = () => {
   const [descriptionInput, setDescriptionInput] = useState('');
   const [priceInput, setPriceInput] = useState('');
   const [locationInput, setLocationInput] = useState('');
-  
+  const navigate = useNavigate();
 
 
     const newPost = async(event) => {
@@ -15,7 +15,7 @@ const NewPost = () => {
       const token = window.localStorage.getItem('token')
 
 
-        fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts', {
+        const response = await fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/posts', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',
@@ -30,13 +30,12 @@ const NewPost = () => {
       willDeliver: true
     }
   })
-}).then(response => response.json())
-  .then(result => {
-    console.log(result);
-  })
-  .catch(console.error);
+})
+  const result = await response.json();
+
+  navigate('/');
 }
-// newPost();
+
 
 const handleChangeTitle = (event) => {
   setTitleInput(event.target.value);
@@ -54,18 +53,17 @@ const handleChangeLocation = (event) => {
   <>
     <p>New Post</p>
     
-<form onSubmit={newPost}>
-<input id="reply" type="text" placeholder="Type title here." onChange={handleChangeTitle}></input>
-<input id="reply" type="text" placeholder="Type description here." onChange={handleChangeDescription}></input>
-<input id="reply" type="text" placeholder="Type price here." onChange={handleChangePrice}></input>
-<input id="reply" type="text" placeholder="Type location here." onChange={handleChangeLocation}></input>
-
+<form class='new-post' onSubmit={newPost}>
+<input class="title" type="text" placeholder="Type title here." onChange={handleChangeTitle}></input>
+<input class="description" type="text" placeholder="Type description here." onChange={handleChangeDescription}></input>
+<input class="price" type="text" placeholder="Type price here." onChange={handleChangePrice}></input>
+<input class="location" type="text" placeholder="Type location here." onChange={handleChangeLocation}></input>
 <button type='submit'>Send</button>
 
 </form>
 </>
  )
-
+//classname wasn't working, class works for now. 
 }
 
 export default NewPost

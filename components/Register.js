@@ -1,11 +1,12 @@
-import React, { useState }from 'react';
-
+import React, { useState }from 'react'; //page refresh needed to show logged in.
+import { useNavigate } from 'react-router-dom';
 
 
 const Register = (props) => {
 
   const [nameInput, setNameInput] = useState('');
   const [pwdInput, setPwdInput] = useState('');
+  const navigate = useNavigate();
 
     const register = async(event) => {
       event.preventDefault();
@@ -27,10 +28,13 @@ const Register = (props) => {
       });
     
       const result = await response.json();
+      console.log(result);
       console.log(result.data.token);
-      window.localStorage.setItem('Token',result.data.token);
+      window.localStorage.setItem('token',result.data.token);
+      navigate('/');
     } catch (error) {
       console.error(error);
+      
     }
   }
     const handleNameChange = (event) => {

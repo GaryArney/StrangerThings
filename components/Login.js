@@ -11,7 +11,7 @@ const Login = (props) => {
 
     const login = async(event) => {
       event.preventDefault();
-      console.log(nameInput, pwdInput, 'inputs');
+
             try {
               const response = await fetch('https://strangers-things.herokuapp.com/api/2211-FTB-ET-WEB-AM/users/login', {
                 method: 'POST',
@@ -27,7 +27,6 @@ const Login = (props) => {
               });
         
               const result = await response.json();
-              console.log(result.data.token);
               console.log(result);
               window.localStorage.setItem('token',result.data.token);
            
@@ -37,7 +36,6 @@ const Login = (props) => {
             }
        
             props.setLoggedIn(window.localStorage.getItem('token'));
-            console.log('login set to token');
           };
 
     const handleNameChange = (event) => {
